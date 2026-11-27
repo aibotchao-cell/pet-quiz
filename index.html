@@ -169,8 +169,12 @@
     var correctSoFar = S.picks.filter(function(p,idx){
       return p !== undefined && p === QUESTIONS[S.order[idx]].a;
     }).length;
-    meta.appendChild(el("span", null, "已答 " + S.picks.filter(function(p){return p!==undefined;}).length));
-    meta.appendChild(el("span", null, "答對 " + correctSoFar));
+    var mDone = el("span", null, "已答 " + S.picks.filter(function(p){return p!==undefined;}).length);
+    mDone.id = "mDone";
+    meta.appendChild(mDone);
+    var mRight = el("span", null, "答對 " + correctSoFar);
+    mRight.id = "mRight";
+    meta.appendChild(mRight);
     app.appendChild(meta);
 
     var card = el("div", "card");
@@ -209,7 +213,16 @@
       S.picks[S.pos] = i;
       if (i !== item.a) S.wrong.push(qi);
       applyAnswer(i, optEls, fb, next, item);
+      updateMeta();
     }
+  }
+
+  function updateMeta(){
+    var d = $("#mDone"), r = $("#mRight");
+    if (d) d.textContent = "已答 " + S.picks.filter(function(p){return p!==undefined;}).length;
+    if (r) r.textContent = "答對 " + S.picks.filter(function(p, idx){
+      return p !== undefined && p === QUESTIONS[S.order[idx]].a;
+    }).length;
   }
 
   function applyAnswer(pick, optEls, fb, next, item){
