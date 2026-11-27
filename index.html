@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#11131a">
+<title>PET 單字測驗</title>
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:#11131a;color:#e8eaf0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    min-height:100vh;
+    padding:calc(14px + env(safe-area-inset-top)) 14px calc(24px + env(safe-area-inset-bottom));
+    max-width:520px;margin:0 auto;
+    overscroll-behavior:none;
+  }
+  h1{font-size:19px;margin:0 0 2px;letter-spacing:.5px}
+  .sub{font-size:12px;color:#7d8496;margin-bottom:14px}
+  .bar{height:6px;background:#1e222d;border-radius:99px;overflow:hidden;margin:10px 0 4px}
+  .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4d8cff,#7b5cff);transition:width .25s}
+  .meta{display:flex;justify-content:space-between;font-size:12px;color:#8a92a6;font-variant-numeric:tabular-nums}
+  .card{background:#171a23;border:1px solid #232838;border-radius:16px;padding:16px;margin-top:14px}
+  .part{display:inline-block;font-size:11px;padding:3px 9px;border-radius:99px;background:#22283a;color:#93a4c6;margin-bottom:10px}
+  .q{font-size:21px;line-height:1.45;margin:2px 0 16px;font-weight:600}
+  .q.en{font-family:Georgia,"Times New Roman",serif;font-style:italic}
+  .opt{
+    display:flex;align-items:center;gap:10px;width:100%;
+    background:#1b2030;border:1.5px solid #2a3145;color:#e8eaf0;
+    border-radius:12px;padding:13px 14px;margin-bottom:9px;
+    font-size:16px;text-align:left;cursor:pointer;
+    transition:background .15s,border-color .15s,transform .08s;
+  }
+  .opt:active{transform:scale(.985)}
+  .opt .k{
+    flex:0 0 24px;height:24px;line-height:24px;text-align:center;
+    background:#2a3145;color:#9fb0d0;border-radius:7px;font-size:12px;font-weight:700;
+  }
+  .opt.correct{background:#12351f;border-color:#2f9e5f}
+  .opt.correct .k{background:#2f9e5f;color:#04120a}
+  .opt.wrong{background:#3a1620;border-color:#c3425c}
+  .opt.wrong .k{background:#c3425c;color:#1a050a}
+  .opt.dim{opacity:.45}
+  .opt:disabled{cursor:default}
+  .fb{margin-top:12px;font-size:14px;line-height:1.6;display:none}
+  .fb.show{display:block}
+  .fb .verdict{font-weight:700;margin-bottom:4px}
+  .fb .tip{color:#a9b4cc}
+  .btn{
+    display:block;width:100%;padding:14px;border-radius:12px;border:none;
+    background:linear-gradient(135deg,#4d8cff,#7b5cff);color:#fff;font-size:16px;font-weight:700;
+    margin-top:14px;cursor:pointer;
+  }
+  .btn.ghost{background:#1b2030;border:1.5px solid #2a3145;color:#c3cde3}
+  .btn:active{transform:scale(.99)}
+  .score{font-size:52px;font-weight:800;text-align:center;margin:6px 0 0;font-variant-numeric:tabular-nums}
+  .score small{font-size:18px;color:#7d8496;font-weight:600}
+  .verdict2{text-align:center;color:#a9b4cc;font-size:14px;line-height:1.6;margin:8px 0 4px}
+  .wlist{margin:6px 0 0;padding:0;list-style:none}
+  .wlist li{border-top:1px solid #232838;padding:11px 0;font-size:14px;line-height:1.55}
+  .wlist li:first-child{border-top:none}
+  .wlist .h{font-weight:700;color:#e8eaf0}
+  .wlist .r{color:#8a92a6;font-size:13px}
+  .wlist .r b{color:#5ee08a;font-weight:700}
+  .wlist .r s{color:#e07186}
+  .center{text-align:center}
+  .hint{font-size:12px;color:#6b7385;text-align:center;margin-top:16px;line-height:1.6}
+  label.tog{display:flex;align-items:center;gap:9px;font-size:14px;color:#a9b4cc;margin-top:14px;cursor:pointer}
+  input[type=checkbox]{width:18px;height:18px;accent-color:#4d8cff}
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var QUESTIONS = [
+    // Part A 英→中
+    {p:"A", q:"borrow", o:["借出","借入","買下","賣掉"], a:1, t:"borrow = 借入（跟別人借進來）。lend = 借出（借給別人）。"},
+    {p:"A", q:"lend", o:["借入","借出","歸還","付款"], a:1, t:"lend = 借出。記法：lend 的 l 像「給出去」，borrow 的 b 像「抱回來」。"},
+    {p:"A", q:"arrive", o:["出發","離開","抵達","停留"], a:2, t:"arrive = 抵達。arrive at + 小地點（the airport），arrive in + 城市國家（Taipei）。"},
+    {p:"A", q:"describe", o:["描述","決定","討論","發現"], a:0, t:"describe = 描述。名詞是 description。"},
+    {p:"A", q:"prefer", o:["準備","比較喜歡","建議","假裝"], a:1, t:"prefer A to B = 比 B 更喜歡 A。prefer 後面接 to，不接 than。"},
+    {p:"A", q:"tidy", o:["髒亂的","擁擠的","整齊的","安靜的"], a:2, t:"tidy = 整齊的（英式常用）。messy = 亂的，crowded = 擁擠的。"},
+    {p:"A", q:"receive", o:["寄出","收到","記錄","計算"], a:1, t:"receive = 收到（被動拿到）。send = 寄出。"},
+    {p:"A", q:"dangerous", o:["吵鬧的","陌生的","危險的","困難的"], a:2, t:"dangerous = 危險的，名詞 danger。noisy = 吵，strange = 陌生。"},
+    {p:"A", q:"explain", o:["解釋","抱怨","邀請","承諾"], a:0, t:"explain = 解釋。注意是 explain sth to sb，不能說 explain me。"},
+    {p:"A", q:"worried", o:["無聊的","生氣的","擔心的","驚訝的"], a:2, t:"worried = 擔心的，be worried about。bored = 無聊的，angry = 生氣。"},
+
+    // Part B 中→英
+    {p:"B", q:"邀請", o:["invitation","interview","introduction","instruction"], a:0, t:"invitation = 邀請（名詞），動詞 invite。interview 是面試／訪問。"},
+    {p:"B", q:"練習（動詞）", o:["practise","prepare","protect","produce"], a:0, t:"practise 是英式動詞拼法；practice 是名詞。PET 是劍橋系統，動詞用 practise。"},
+    {p:"B", q:"圖書館", o:["laboratory","library","bookshop","gallery"], a:1, t:"library = 圖書館。laboratory = 實驗室，bookshop = 書店。"},
+    {p:"B", q:"天氣", o:["weather","whether","water","warmer"], a:0, t:"weather = 天氣；whether = 是否（發音一樣，拼法不同）。"},
+    {p:"B", q:"決定", o:["divide","describe","decide","discuss"], a:2, t:"decide = 決定，decide to do sth。discuss = 討論。"},
+    {p:"B", q:"便宜的", o:["cheap","expensive","exciting","easy"], a:0, t:"cheap = 便宜的，反義 expensive。"},
+    {p:"B", q:"建議（動詞）", o:["suggest","support","suppose","surprise"], a:0, t:"suggest = 建議。suggest doing sth 或 suggest that + 主詞 + 原形動詞。"},
+    {p:"B", q:"準時", o:["in time","on time","at time","by time"], a:1, t:"on time = 準時（照預定時間）。in time = 趕上（在期限前）。"},
+
+    // Part C 句子填空
+    {p:"C", q:"Can I ______ your phone for a minute?", o:["lend","borrow","keep","return"], a:1, t:"我要「借入」別人的手機 → borrow。lend 是別人借給我。"},
+    {p:"C", q:"She ______ me her bike yesterday.", o:["borrowed","lent","lend","borrowing"], a:1, t:"她「借出」車給我 → lent（lend 的過去式）。"},
+    {p:"C", q:"I'm looking ______ my glasses.", o:["after","for","at","up"], a:1, t:"look for = 尋找。look after = 照顧，look at = 看著，look up = 查（字典）。"},
+    {p:"C", q:"We arrived ______ the airport at seven.", o:["to","in","at","on"], a:2, t:"arrive at + 具體地點（airport、station）；arrive in + 城市／國家。"},
+    {p:"C", q:"He's very good ______ maths.", o:["in","at","on","for"], a:1, t:"be good at + 科目／技能，這是固定搭配。"},
+    {p:"C", q:"She has lived here ______ 2019.", o:["for","since","from","in"], a:1, t:"since + 起點（2019、last year）；for + 一段時間（three years）。"},
+    {p:"C", q:"Would you like ______ come with us?", o:["come","coming","to come","came"], a:2, t:"would like to + 原形動詞。like 後面才是 V-ing。"},
+    {p:"C", q:"My sister is afraid ______ dogs.", o:["of","from","with","about"], a:0, t:"be afraid of = 害怕，固定搭配。"}
+  ];
+
+  var KEY = "petquiz_v1";
+  var S = { order: [], pos: 0, picks: [], wrong: [], shuffle: true, pool: null };
+
+  function $(sel){ return document.querySelector(sel); }
+  function el(tag, cls, txt){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.textContent = txt;
+    return e;
+  }
+  function store(k, v){
+    try { localStorage.setItem(KEY, JSON.stringify(v)); } catch(e){}
+  }
+  function load(){
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ return {}; }
+  }
+
+  function shuffleArr(a){
+    for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; }
+    return a;
+  }
+
+  function startGame(poolIds){
+    var ids = poolIds ? poolIds.slice() : QUESTIONS.map(function(_,i){ return i; });
+    S.order = S.shuffle ? shuffleArr(ids.slice()) : ids;
+    S.pos = 0; S.picks = []; S.wrong = []; S.pool = poolIds ? poolIds.slice() : null;
+    renderQuestion();
+  }
+
+  function renderQuestion(){
+    var app = $("#app");
+    app.innerHTML = "";
+
+    var total = S.order.length;
+    if (S.pos >= total) { renderResult(); return; }
+
+    var qi = S.order[S.pos];
+    var item = QUESTIONS[qi];
+    var answered = S.picks[S.pos] !== undefined;
+
+    var h = el("h1", null, "PET 單字測驗");
+    app.appendChild(h);
+    var sub = el("div", "sub", "Part " + item.p + "　·　第 " + (S.pos+1) + " / " + total + " 題");
+    app.appendChild(sub);
+
+    var barWrap = el("div", "bar");
+    var barFill = el("i");
+    barFill.style.width = (S.pos/total*100) + "%";
+    barWrap.appendChild(barFill);
+    app.appendChild(barWrap);
+
+    var meta = el("div", "meta");
+    var correctSoFar = S.picks.filter(function(p,idx){
+      return p !== undefined && p === QUESTIONS[S.order[idx]].a;
+    }).length;
+    meta.appendChild(el("span", null, "已答 " + S.picks.filter(function(p){return p!==undefined;}).length));
+    meta.appendChild(el("span", null, "答對 " + correctSoFar));
+    app.appendChild(meta);
+
+    var card = el("div", "card");
+    card.appendChild(el("span", "part", "Part " + item.p + "　" + (item.p==="A"?"英文字選中文意思":item.p==="B"?"中文選英文":"句子填空")));
+    var qEl = el("div", "q" + (item.p==="A"||item.p==="B" ? " en" : ""), item.q);
+    card.appendChild(qEl);
+
+    var optEls = [];
+    item.o.forEach(function(txt, i){
+      var b = el("button", "opt");
+      var k = el("span", "k", "ABCD".charAt(i));
+      b.appendChild(k);
+      b.appendChild(el("span", null, txt));
+      b.addEventListener("click", function(){ answer(i); });
+      optEls.push(b);
+      card.appendChild(b);
+    });
+
+    var fb = el("div", "fb");
+    card.appendChild(fb);
+
+    var next = el("button", "btn", "下一題");
+    next.style.display = "none";
+    next.addEventListener("click", function(){
+      S.pos++; renderQuestion();
+    });
+    card.appendChild(next);
+    app.appendChild(card);
+
+    if (answered) {
+      applyAnswer(S.picks[S.pos], optEls, fb, next, item);
+    }
+
+    function answer(i){
+      if (S.picks[S.pos] !== undefined) return;
+      S.picks[S.pos] = i;
+      if (i !== item.a) S.wrong.push(qi);
+      applyAnswer(i, optEls, fb, next, item);
+    }
+  }
+
+  function applyAnswer(pick, optEls, fb, next, item){
+    optEls.forEach(function(b, i){
+      b.disabled = true;
+      if (i === item.a) b.classList.add("correct");
+      else if (i === pick) b.classList.add("wrong");
+      else b.classList.add("dim");
+    });
+    var ok = pick === item.a;
+    fb.className = "fb show";
+    fb.innerHTML = "";
+    var v = el("div", "verdict", ok ? "✅ 答對了" : "❌ 正確答案是 " + "ABCD".charAt(item.a) + "．" + item.o[item.a]);
+    v.style.color = ok ? "#5ee08a" : "#e07186";
+    fb.appendChild(v);
+    fb.appendChild(el("div", "tip", item.t));
+    next.style.display = "block";
+    next.textContent = (S.pos + 1 >= S.order.length) ? "看結果" : "下一題";
+    next.focus = null;
+  }
+
+  function renderResult(){
+    var app = $("#app");
+    app.innerHTML = "";
+    var total = S.order.length;
+    var right = 0;
+    S.order.forEach(function(qi, idx){
+      if (S.picks[idx] === QUESTIONS[qi].a) right++;
+    });
+    var pct = Math.round(right / total * 100);
+
+    var st = load();
+    var isBest = !st.best || right > st.best.right || (right === st.best.right && total > st.best.total);
+    if (isBest) { st.best = { right: right, total: total, when: new Date().toISOString().slice(0,10) }; }
+    st.runs = (st.runs || 0) + 1;
+    st.lastWrong = S.wrong.slice();
+    store(KEY, st);
+
+    app.appendChild(el("h1", null, "PET 單字測驗"));
+    var sub = el("div", "sub center", "結果");
+    app.appendChild(sub);
+
+    var card = el("div", "card center");
+    card.appendChild(el("div", "score")).innerHTML = right + "<small> / " + total + "</small>";
+    card.appendChild(el("div", "verdict2", pct + " 分"));
+    var msg;
+    if (right >= total - 3) msg = "錯 3 題以內：單字量沒問題，PET 閱讀如果還是不高，問題會在題型或文法，不在單字。";
+    else if (right >= total - 8) msg = "錯 4–8 題：有背但沒背牢。把錯的字抄成小卡，三天後只練這些。";
+    else msg = "錯 9 題以上：這批高頻字還不熟，建議先完整過一次 B1 字表。";
+    card.appendChild(el("div", "verdict2", msg));
+    if (isBest && st.runs > 1) card.appendChild(el("div", "verdict2", "🏆 這是你的最佳成績"));
+    app.appendChild(card);
+
+    if (S.wrong.length) {
+      var wc = el("div", "card");
+      wc.appendChild(el("span", "part", "錯題 " + S.wrong.length + " 題"));
+      var ul = el("ul", "wlist");
+      S.wrong.forEach(function(qi){
+        var it = QUESTIONS[qi];
+        var li = el("li");
+        li.appendChild(el("div", "h", "Part " + it.p + "　" + it.q));
+        var r = el("div", "r");
+        var pick = S.picks[S.order.indexOf(qi)];
+        r.innerHTML = "正解 <b>" + esc(it.o[it.a]) + "</b>　你的答案 <s>" + esc(it.o[pick]) + "</s>";
+        li.appendChild(r);
+        li.appendChild(el("div", "r", it.t));
+        ul.appendChild(li);
+      });
+      wc.appendChild(ul);
+      app.appendChild(wc);
+    }
+
+    var b1 = el("button", "btn", "全部再測一次");
+    b1.addEventListener("click", function(){ startGame(null); });
+    app.appendChild(b1);
+
+    if (S.wrong.length) {
+      var b2 = el("button", "btn ghost", "只練這 " + S.wrong.length + " 題");
+      b2.addEventListener("click", function(){ startGame(S.wrong.slice()); });
+      app.appendChild(b2);
+    }
+
+    app.appendChild(el("div", "hint", "重新整理或關掉都行，最佳成績存在這台裝置上。"));
+  }
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  // 開始畫面
+  function renderStart(){
+    var app = $("#app");
+    app.innerHTML = "";
+    app.appendChild(el("h1", null, "PET 單字測驗"));
+    app.appendChild(el("div", "sub", "B1 高頻字 ＋ 最容易錯的介系詞搭配　·　共 " + QUESTIONS.length + " 題"));
+
+    var card = el("div", "card");
+    card.appendChild(el("span", "part", "玩法"));
+    var ul = el("ul", "wlist");
+    [["Part A","英文字選中文意思（10 題）"],
+     ["Part B","中文選英文（8 題）"],
+     ["Part C","句子填空，考介系詞與搭配（8 題）"],
+     ["作答","點選答案後會立刻告訴你對錯和原因"]].forEach(function(row){
+      var li = el("li");
+      li.appendChild(el("div", "h", row[0]));
+      li.appendChild(el("div", "r", row[1]));
+      ul.appendChild(li);
+    });
+    card.appendChild(ul);
+
+    var lab = el("label", "tog");
+    var cb = document.createElement("input");
+    cb.type = "checkbox"; cb.checked = S.shuffle;
+    cb.addEventListener("change", function(){ S.shuffle = cb.checked; });
+    lab.appendChild(cb);
+    lab.appendChild(el("span", null, "打亂題目順序"));
+    card.appendChild(lab);
+
+    app.appendChild(card);
+
+    var b = el("button", "btn", "開始測驗");
+    b.addEventListener("click", function(){ startGame(null); });
+    app.appendChild(b);
+
+    var st = load();
+    if (st.best) {
+      app.appendChild(el("div", "hint", "上次最佳：" + st.best.right + " / " + st.best.total + "（" + st.best.when + "）"));
+    }
+  }
+
+  window.__petquiz = { QUESTIONS: QUESTIONS, S: S, startGame: startGame };
+  renderStart();
+})();
+</script>
+</body>
+</html>
