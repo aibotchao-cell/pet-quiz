@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#11131a">
-<title>PET 練習站</title>
+<title>PET Practice</title>
 <style>
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
@@ -156,6 +156,7 @@
 
     { part:"Part 2", kind:"match",
       lead:"下面五個人各自需要一個地方或活動。從 A–H 選出最適合的選項（每個選項只能用一次）。",
+      leadEN:"Five people each need a place or activity. Choose the best option, A–H, for each person. Use each option once.",
       people:[
         {name:"Maria", desc:"wants a cheap weekend activity for her children, aged 6 and 8"},
         {name:"Ken", desc:"needs a quiet place to study in the evenings"},
@@ -188,44 +189,46 @@
 
     { part:"Part 4", kind:"gap",
       lead:"閱讀下面文章，選出最適合每個空格的字。",
+      leadEN:"Read the text below and choose the best word for each gap.",
       passage:"**The science of sleep**\nMost teenagers know that sleep is important, (1) ___ few of them get enough of it. Doctors say people between 13 and 18 need about nine hours a night, but research (2) ___ that many get only seven. One reason is that phones and tablets keep young people (3) ___ late. The light from a screen tells the brain that it is still daytime. Experts (4) ___ that teenagers should stop using screens an hour before bed. They also say that going to bed at the (5) ___ time every night is more useful than sleeping late at weekends. Students who follow this advice often find that they can concentrate (6) ___ in class.",
       items:[
-        {q:"空格 (1)：Most teenagers know that sleep is important, ___ few of them get enough of it.", o:["and","but","so","because"], a:1, t:"前後是對比（知道重要 vs 睡不夠）→ but。"},
-        {q:"空格 (2)：research ___ that many get only seven", o:["shows","tells","speaks","looks"], a:0, t:"research shows that 是固定搭配。"},
-        {q:"空格 (3)：phones keep young people ___ late", o:["wake","awake","waking","woke"], a:1, t:"keep sb awake = 讓某人保持清醒。"},
-        {q:"空格 (4)：Experts ___ that teenagers should stop using screens", o:["suggest","suggest to","advise to","recommend to"], a:0, t:"suggest that + 子句；advise sb to do。"},
-        {q:"空格 (5)：going to bed at the ___ time every night", o:["same","similar","equal","alike"], a:0, t:"at the same time = 同一時間。"},
-        {q:"空格 (6)：they can concentrate ___ in class", o:["good","better","best","well"], a:1, t:"和以前比較（沒有 the）→ 比較級 better。"}
+        {q:"(1)：Most teenagers know that sleep is important, ___ few of them get enough of it.", o:["and","but","so","because"], a:1, t:"前後是對比（知道重要 vs 睡不夠）→ but。"},
+        {q:"(2)：research ___ that many get only seven", o:["shows","tells","speaks","looks"], a:0, t:"research shows that 是固定搭配。"},
+        {q:"(3)：phones keep young people ___ late", o:["wake","awake","waking","woke"], a:1, t:"keep sb awake = 讓某人保持清醒。"},
+        {q:"(4)：Experts ___ that teenagers should stop using screens", o:["suggest","suggest to","advise to","recommend to"], a:0, t:"suggest that + 子句；advise sb to do。"},
+        {q:"(5)：going to bed at the ___ time every night", o:["same","similar","equal","alike"], a:0, t:"at the same time = 同一時間。"},
+        {q:"(6)：they can concentrate ___ in class", o:["good","better","best","well"], a:1, t:"和以前比較（沒有 the）→ 比較級 better。"}
       ]},
 
     { part:"Part 5", kind:"cloze",
       lead:"每格填入一個字（不需要選項）。大小寫不計。",
+      leadEN:"Think of ONE word for each gap. There are no options. Spelling must be correct.",
       passage:"Hi Ben,\nThanks (1) ___ your email. I'm sorry I didn't answer sooner — I've been really busy (2) ___ school. Guess what? I've decided to join the school swimming team. We practise three times (3) ___ week, which is a lot, but I really enjoy it. The coach says I'm getting better (4) ___ I was last year. The only problem is that practice starts (5) ___ seven in the morning, so I have to get up at six. I'm not sure I'll ever get used (6) ___ that!\nWrite back soon, Alex",
       items:[
-        {q:"空格 (1)：Thanks ___ your email.", accept:["for"], t:"Thanks for sth = 為某事道謝。"},
-        {q:"空格 (2)：I've been really busy ___ school.", accept:["with","at"], t:"busy with sth。"},
-        {q:"空格 (3)：We practise three times ___ week.", accept:["a","per","every"], t:"three times a week = 每週三次。"},
-        {q:"空格 (4)：I'm getting better ___ I was last year.", accept:["than"], t:"比較級 ＋ than。"},
-        {q:"空格 (5)：practice starts ___ seven in the morning.", accept:["at"], t:"時間點用 at。"},
-        {q:"空格 (6)：I'll never get used ___ that!", accept:["to"], t:"be/get used to + N/V-ing。"}
+        {q:"(1)：Thanks ___ your email.", accept:["for"], t:"Thanks for sth = 為某事道謝。"},
+        {q:"(2)：I've been really busy ___ school.", accept:["with","at"], t:"busy with sth。"},
+        {q:"(3)：We practise three times ___ week.", accept:["a","per","every"], t:"three times a week = 每週三次。"},
+        {q:"(4)：I'm getting better ___ I was last year.", accept:["than"], t:"比較級 ＋ than。"},
+        {q:"(5)：practice starts ___ seven in the morning.", accept:["at"], t:"時間點用 at。"},
+        {q:"(6)：I'll never get used ___ that!", accept:["to"], t:"be/get used to + N/V-ing。"}
       ]}
   ];
 
   /* ============ 聽力 ============ */
   var LISTENING = [
-    { part:"Part 1", kind:"listen", audio:"audio/l1.mp3", lead:"聽一段簡短對話，選出正確答案。可以重聽。",
+    { part:"Part 1", kind:"listen", audio:"audio/l1.mp3", lead:"聽一段簡短對話，選出正確答案。可以重聽。", leadEN:"Listen to a short conversation and choose the right answer. You can replay it.",
       script:[["W","Hi Dan, it's me. Are we still meeting at the station at six?"],["M","Hi. Could we make it half past six? I finish work late today."],["W","Sure, half past six. Shall I get the tickets?"],["M","Yes please. Two returns, thanks."],["W","OK, see you there."]],
       items:[{ q:"What time will they meet?", o:["6.00","6.30","7.00"], a:1, t:"half past six = 6:30，因為對方下班晚。" }] },
 
-    { part:"Part 1", kind:"listen", audio:"audio/l2.mp3", lead:"聽一段簡短對話，選出正確答案。",
+    { part:"Part 1", kind:"listen", audio:"audio/l2.mp3", lead:"聽一段簡短對話，選出正確答案。", leadEN:"Listen to a short conversation and choose the right answer. You can replay it.",
       script:[["W","Excuse me, how much is this sandwich?"],["M","Four pounds fifty. But if you buy a drink as well, it's five pounds together."],["W","Oh, that's good. I'll have a coffee too, then."],["M","Sure. Anything else?"],["W","No, that's all, thanks."]],
       items:[{ q:"What does the woman decide to buy?", o:["Only a sandwich","A sandwich and a drink","Only a drink"], a:1, t:"她說 I'll have a coffee too → 加點飲料。" }] },
 
-    { part:"Part 1", kind:"listen", audio:"audio/l3.mp3", lead:"聽一段簡短對話，選出正確答案。",
+    { part:"Part 1", kind:"listen", audio:"audio/l3.mp3", lead:"聽一段簡短對話，選出正確答案。", leadEN:"Listen to a short conversation and choose the right answer. You can replay it.",
       script:[["M","Did you bring an umbrella?"],["W","No, I didn't. The forecast said it would be sunny."],["M","Well, look outside. It's pouring."],["W","Oh no. We'll have to run to the bus stop."],["M","Too late. We've missed it. The next one is in twenty minutes."]],
       items:[{ q:"What is the weather like now?", o:["Sunny","Rainy","Windy"], a:1, t:"It's pouring = 下大雨。" }] },
 
-    { part:"Part 2", kind:"listen", audio:"audio/l4.mp3", lead:"聽電話對話，回答三個問題。",
+    { part:"Part 2", kind:"listen", audio:"audio/l4.mp3", lead:"聽電話對話，回答三個問題。", leadEN:"Listen to a phone call and answer three questions. You can replay it.",
       script:[["M","Hello. I'd like to book a tennis court for Saturday, please."],["W","Morning or afternoon?"],["M","Morning, if possible. Around ten o'clock."],["W","I'm afraid ten is taken. I can do half past nine, or eleven."],["M","Half past nine is fine. How much is it?"],["W","Eight pounds an hour. Members pay five."],["M","I'm not a member, I'm afraid. Can I pay at the desk?"],["W","Yes, of course. But please arrive ten minutes early. The courts get busy."],["M","No problem. Thanks very much."]],
       items:[
         {q:"What does the man want to do?", o:["Join a club","Book a court","Buy some equipment"], a:1, t:"book a tennis court = 預約球場。"},
@@ -233,7 +236,7 @@
         {q:"What is he asked to do?", o:["Pay online","Arrive early","Bring a member's card"], a:1, t:"arrive ten minutes early。"}
       ] },
 
-    { part:"Part 3", kind:"listen", audio:"audio/l5.mp3", lead:"聽一段車站廣播，回答三個問題。",
+    { part:"Part 3", kind:"listen", audio:"audio/l5.mp3", lead:"聽一段車站廣播，回答三個問題。", leadEN:"Listen to a station announcement and answer three questions. You can replay it.",
       script:[["W","Good morning, everyone. This is a message for passengers travelling to Bristol on the eight fifteen service. Because of engineering work, this train will now leave from platform six instead of platform two. It will also stop at Bath, which is not shown on your tickets. Passengers with heavy luggage should use the lift next to the ticket office. The cafe on platform six is open, and tea and coffee are free for anyone whose journey is delayed by more than thirty minutes. We apologise for the inconvenience."]],
       items:[
         {q:"Which platform will the train leave from?", o:["2","6","8"], a:1, t:"instead of platform two → 改成 6 號月台。"},
@@ -284,6 +287,47 @@
     "關鍵字：meet other people＋photography。E 是攝影社，各程度都收。其他選項的興趣都不是攝影。"
   ];
 
+  var EXPO_EN = {
+    r0_0:"The question asks what the notice tells members to DO. A is wrong: the notice says free of charge, so nobody pays. C is wrong: the closed days are a fact, but the notice is not telling you to wait. B is right: 'Please show your card at reception'. Method: underline the action in the question first, then look for that verb in the text.",
+    r0_1:"A is wrong: the place has not changed — screen 4 is the usual cinema. C is wrong: Jess already has the ticket. B is right: '7.30, not 8.00 like we thought'. Whenever you see 'not ... like we thought', the answer is usually in that correction.",
+    r0_2:"A is wrong: it says clearly 'You do not need to print them'. C is wrong: 8.00 is when the room opens, not a time you must arrive. B is right: 'a USB stick is fine' means a digital file is enough.",
+    r0_3:"A is wrong: only the third one is half price, not all of them. C is wrong: 'ends Sunday' is the last day, not the first. B is right: 'the third one HALF PRICE'. Watch who, how much, and when it finishes.",
+    r0_4:"A is wrong: the pasta is already in the fridge — heat it, don't cook it from scratch. C is wrong: Mum says she will be late, not that Tom should wait up. B is right: 'heat it for five minutes' plus 'don't forget the rubbish'.",
+    r2_0:"'Seasick' means feeling ill on a boat, so the answer is 'unwell'. 'Excited' and 'bored' are the opposite — they are the trap for anyone who guesses from the idea that a boat trip must be fun.",
+    r2_1:"The text says 'It sounds boring, but it isn't', so 'never boring'. A is wrong: she never says it is easier than it looks. C is wrong: steering happens in the daytime too.",
+    r2_2:"'By the end I loved it' — that is what surprised her. B is wrong: the text never says she could not sleep in the day. C is wrong: the young people do the night watch themselves.",
+    r2_3:"'Saving for a longer course' means she is earning money for the next trip. B is wrong: she is not teaching anyone. C is wrong: it was not a school trip.",
+    r2_4:"'Not scared of trying new things' and 'better at working in a team' both point to confidence. B is wrong: no mention of studying sailing at school. C is wrong: no mention of worse marks. For inference questions, look for feeling and attitude words.",
+    r3_0:"There is a contrast: teenagers know sleep matters, BUT few get enough. 'And' adds, 'so' shows result, 'because' gives a reason — none of them fits the contrast.",
+    r3_1:"'Research shows that ...' is a fixed collocation. 'Tell' needs a person (tell somebody something); 'speak' is not followed by a that-clause; 'look' does not fit the meaning.",
+    r3_2:"'Keep somebody + adjective': 'keep young people awake'. 'Awake' is an adjective here; 'waking' is a verb form and cannot go in this slot.",
+    r3_3:"'Suggest that + clause'. Note the patterns: 'advise somebody to do', 'recommend doing'. 'Advise to' on its own is simply wrong. Check what follows the gap: a clause or 'to + verb'.",
+    r3_4:"'At the same time' is a fixed phrase. 'Similar', 'equal' and 'alike' cannot fill 'the ___ time' — this is a collocation question, not a synonym question.",
+    r3_5:"There is no 'the', and the meaning is 'better than before', so use the comparative 'better', not the superlative 'best'. 'Good' and 'well' are base forms and cannot express a comparison.",
+    r4_0:"'Thanks for + noun/gerund'. 'Thanks to' means 'because of / owing to' — a completely different meaning, so don't fill 'to' automatically.",
+    r4_1:"'Busy with something' ('busy at' is also possible). 'For' and 'in' do not work here.",
+    r4_2:"'Three times a week'. The article in frequency phrases is 'a', not 'the' or 'one'.",
+    r4_3:"'Better' is a comparative, so it must be followed by 'than'. See 'better' — think 'than'.",
+    r4_4:"Use 'at' for clock times (at seven, at noon). 'In' is for months and years, 'on' for days and dates.",
+    r4_5:"'Get used to + noun / -ing'. Here 'to' is a preposition, not an infinitive, which is why a pronoun like 'that' can follow it. Dropping 'to' is the most common mistake.",
+    l0_0:"Key line: 'Could we make it half past six?' and then the confirmation 'Sure, half past six'. 6.00 is the time mentioned first (the trap) and 7.00 never appears. In Part 1 the first number you hear is often the wrong one.",
+    l1_0:"Key line: 'if you buy a drink as well, it's five pounds together', and she answers 'I'll have a coffee too'. The sandwich alone is 4.50 — that is option A, not her final decision.",
+    l2_0:"Key line: 'It's pouring' — it is raining hard now. 'Sunny' was the forecast earlier in the conversation (the trap), not the weather now. 'Windy' is never mentioned.",
+    l3_0:"Key line: 'I'd like to book a tennis court'. Joining a club and buying equipment are distractors that are never said.",
+    l3_1:"Trap question: he first says 'around ten', but the woman answers 'ten is taken', so they agree on half past nine. Answering after the first sentence always goes wrong here — wait for the final confirmation.",
+    l3_2:"Key line: 'please arrive ten minutes early'. Paying at the desk is what HE asks about and she agrees to, so it is not a requirement; a member's card is never mentioned.",
+    l4_0:"Key line: 'leave from platform six instead of platform two'. Platform 2 is the original one — the biggest trap in this recording.",
+    l4_1:"Key line: 'will also stop at Bath, which is not shown on your tickets' — a new stop. The departure time is not earlier and the train has not become a bus.",
+    l4_2:"Key line: 'free for anyone whose journey is delayed by more than thirty minutes'. Passengers with heavy luggage are told to use the lift, not offered a free drink — mixing the two details leads to B."
+  };
+  var MATCHWHY_EN = [
+    "Keywords: cheap + children aged 6 and 8 + weekend. C is free, for ages 5–10, on Saturday mornings, so all three conditions match. F is a cheap gym but has no children's activities; G is a family allotment — growing vegetables is not an activity for children.",
+    "Keywords: quiet + study + evenings. A is open until 10 pm and has a silent study room on the top floor. H is also open in the evening, but it is a language cafe for conversation practice, not quiet study — the most common wrong answer.",
+    "Keywords: learn to cook + healthy meals. B runs evening classes on healthy vegetarian meals in small groups. G is about growing vegetables, not cooking them — one word of difference.",
+    "Keywords: safe + bicycle + while he is at work (daytime storage). D is indoors, has CCTV and charges by the month. F is a gym and offers no parking at all.",
+    "Keywords: meet other people + photography. E is a photography club that welcomes all levels. None of the other options mentions photography."
+  ];
+
   /* ============ 引擎 ============ */
   var KEY = "petquiz_v2";
   var S = { test:null, steps:[], pos:0, picks:{}, match:{}, done:false, shuffle:true, total:null, retry:false };
@@ -291,6 +335,8 @@
   function $(s){ return document.querySelector(s); }
   function el(t, c, x){ var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e; }
   function normW(x){ return String(x).toLowerCase().replace(/[^a-z\- ]/g,"").replace(/\s+/g," ").trim(); }
+  function say(zh, enTxt){ return (S.test === "vocab") ? zh : enTxt; }
+  function exWhy(key, fallback){ return (S.test === "vocab") ? fallback : (EXPO_EN[key] || fallback); }
   function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
   function store(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
   function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ return {}; } }
@@ -347,16 +393,16 @@
     var total = S.steps.length;
 
     app.appendChild(el("h1", null, testName(S.test)));
-    var head = S.retry ? "錯題重練　·　" : "";
-    app.appendChild(el("div","sub", head + st.part + "　·　第 " + (pointsBefore(S.pos)+1) + " / " + totalNow() + " 題"));
+    var head = S.retry ? say("錯題重練　·　","Review · ") : "";
+    app.appendChild(el("div","sub", head + st.part + "　·　" + say("第 ","Question ") + (pointsBefore(S.pos)+1) + say(" / "," of ") + totalNow() + say(" 題","")));
 
     var barWrap = el("div","bar"), fill = el("i");
     fill.style.width = (S.pos/total*100)+"%";
     barWrap.appendChild(fill); app.appendChild(barWrap);
 
     var meta = el("div","meta");
-    var mD = el("span",null,"已答 "+answeredCount()); mD.id="mDone";
-    var mR = el("span",null,"答對 "+correctCount()); mR.id="mRight";
+    var mD = el("span",null,say("已答 ","Answered ")+answeredCount()); mD.id="mDone";
+    var mR = el("span",null,say("答對 ","Correct ")+correctCount()); mR.id="mRight";
     meta.appendChild(mD); meta.appendChild(mR); app.appendChild(meta);
 
     var card = el("div","card");
@@ -368,7 +414,8 @@
     var pass = (g && g.passage) || (st.data && st.data.passage);
     var notice = (g && g.passage) ? g.notice : (st.data && st.data.notice);
     if (pass) card.appendChild(renderPassage(pass, notice));
-    if (st.kind === "listen" && g && g.lead) card.appendChild(el("div","lead", g.lead));
+    var leadTxt = (g && g.leadEN && S.test !== "vocab") ? g.leadEN : (g && g.lead);
+    if (leadTxt) card.appendChild(el("div","lead", leadTxt));
     if (st.kind === "listen") card.appendChild(renderAudio(st, g));
 
     if (st.kind === "mc") {
@@ -395,8 +442,8 @@
       card.appendChild(el("div","q small", st.data.q));
       var wrap = el("div","typed");
       var inp = document.createElement("input");
-      inp.type="text"; inp.autocapitalize="off"; inp.autocorrect="off"; inp.spellcheck=false; inp.placeholder="打一個字";
-      var okb = el("button","btn","確認");
+      inp.type="text"; inp.autocapitalize="off"; inp.autocorrect="off"; inp.spellcheck=false; inp.placeholder=say("打一個字","Type one word");
+      var okb = el("button","btn",say("確認","Check"));
       wrap.appendChild(inp); wrap.appendChild(okb); card.appendChild(wrap);
       okb.addEventListener("click", function(){
         var v = inp.value.trim().toLowerCase();
@@ -407,7 +454,7 @@
     }
 
     var fb = el("div","fb"); card.appendChild(fb);
-    var next = el("button","btn","下一題"); next.style.display="none";
+    var next = el("button","btn",say("下一題","Next")); next.style.display="none";
     next.addEventListener("click", function(){
       stopSpeak();
       S.pos++; renderStep();
@@ -428,11 +475,11 @@
   }
 
   function partLabel(st){
-    if (st.kind === "listen") return "聽力";
-    if (st.kind === "cloze") return "填空";
-    if (st.kind === "match") return "配對";
-    if (st.kind === "gap") return "選字填空";
-    return S.test === "vocab" ? "單字" : "閱讀";
+    if (st.kind === "listen") return say("聽力","Listening");
+    if (st.kind === "cloze") return say("填空","Open cloze");
+    if (st.kind === "match") return say("配對","Matching");
+    if (st.kind === "gap") return say("選字填空","Multiple-choice cloze");
+    return S.test === "vocab" ? "單字" : "Reading";
   }
 
   function renderPassage(txt, notice){
@@ -457,7 +504,7 @@
     a.style.width = "100%";
     a.style.marginBottom = "8px";
     holder.appendChild(a);
-    holder.appendChild(el("div","warn","英式發音，可重複播放。正式考試每段只播兩次。"));
+    holder.appendChild(el("div","warn",say("英式發音，可重複播放。正式考試每段只播兩次。","British accent. Replay it as often as you like — in the real exam each recording is played twice.")));
     return holder;
   }
 
@@ -488,14 +535,14 @@
       });
     }
     fb.className = "fb show"; fb.innerHTML = "";
-    var v = el("div","verdict", ok ? "✅ 答對了" : (st.kind==="cloze" ? "❌ 答案是 " + d.accept[0] : "❌ 正確答案是 " + "ABCD".charAt(d.a) + "．" + d.o[d.a]));
+    var v = el("div","verdict", ok ? say("✅ 答對了","✅ Correct") : (st.kind==="cloze" ? say("❌ 答案是 ","❌ The answer is ") + d.accept[0] : say("❌ 正確答案是 ","❌ The answer is ") + "ABCD".charAt(d.a) + say("．"," — ") + d.o[d.a]));
     v.style.color = ok ? "#5ee08a" : "#e07186";
     fb.appendChild(v);
-    var ex = EXPO[st.key] || d.t;
-    if (ex) fb.appendChild(el("div","tip", "檢討：" + ex));
+    var ex = exWhy(st.key, d.t);
+    if (ex) fb.appendChild(el("div","tip", say("檢討：","Why: ") + ex));
     if (st.kind === "listen" && st.group.script) {
       var tr = el("div","tr");
-      tr.appendChild(el("b",null,"逐字稿："));
+      tr.appendChild(el("b",null,say("逐字稿：","Transcript:")));
       tr.appendChild(document.createElement("br"));
       st.group.script.forEach(function(l){
         tr.appendChild(document.createTextNode((l[0]==="M"?"Man: ":"Woman: ") + l[1]));
@@ -504,7 +551,7 @@
       fb.appendChild(tr);
     }
     next.style.display = "block";
-    next.textContent = (S.pos + 1 >= S.steps.length) ? "看結果" : "下一題";
+    next.textContent = (S.pos + 1 >= S.steps.length) ? say("看結果","See results") : say("下一題","Next");
   }
 
   function renderMatch(card, st){
@@ -534,8 +581,8 @@
     });
 
     var fb = el("div","fb"); card.appendChild(fb);
-    var btn = el("button","btn","檢查答案"); card.appendChild(btn);
-    var next = el("button","btn","下一題"); next.style.display="none";
+    var btn = el("button","btn",say("檢查答案","Check answers")); card.appendChild(btn);
+    var next = el("button","btn",say("下一題","Next")); next.style.display="none";
     next.addEventListener("click", function(){ S.pos++; renderStep(); });
     card.appendChild(next);
 
@@ -551,19 +598,19 @@
       });
       S.picks[st.key] = right;
       fb.className = "fb show"; fb.innerHTML = "";
-      var v = el("div","verdict","答對 " + right + " / " + g.people.length);
+      var v = el("div","verdict",say("答對 ","Correct: ") + right + " / " + g.people.length);
       v.style.color = right === g.people.length ? "#5ee08a" : "#e8b34b";
       fb.appendChild(v);
       var ans = g.people.map(function(p,i){ return p.name + " → " + g.options[g.answer[i]].k; }).join("　");
-      fb.appendChild(el("div","tip","正解：" + ans));
+      fb.appendChild(el("div","tip",say("正解：","Answers: ") + ans));
       btn.style.display = "none";
       next.style.display = "block";
-      next.textContent = (S.pos + 1 >= S.steps.length) ? "看結果" : "下一題";
+      next.textContent = (S.pos + 1 >= S.steps.length) ? say("看結果","See results") : say("下一題","Next");
       updateMeta();
     }
     btn.addEventListener("click", function(){
       var missing = rows.some(function(r){ return r.sel.value === "-1"; });
-      if (missing) { btn.textContent = "還有人沒選（再按一次仍可送出）"; btn.dataset.warn = "1"; }
+      if (missing) { btn.textContent = say("還有人沒選（再按一次仍可送出）","Some rows are empty — tap again to submit anyway"); btn.dataset.warn = "1"; }
       grade();
     });
     if (S.picks[st.key] !== undefined) {
@@ -575,7 +622,7 @@
       });
       btn.style.display = "none";
       next.style.display = "block";
-      next.textContent = (S.pos + 1 >= S.steps.length) ? "看結果" : "下一題";
+      next.textContent = (S.pos + 1 >= S.steps.length) ? say("看結果","See results") : say("下一題","Next");
     }
   }
 
@@ -604,11 +651,11 @@
   }
   function updateMeta(){
     var d = $("#mDone"), r = $("#mRight");
-    if (d) d.textContent = "已答 " + answeredCount();
-    if (r) r.textContent = "答對 " + correctCount();
+    if (d) d.textContent = say("已答 ","Answered ") + answeredCount();
+    if (r) r.textContent = say("答對 ","Correct ") + correctCount();
   }
 
-  function testName(t){ return t === "vocab" ? "PET 單字測驗" : t === "reading" ? "PET 閱讀測驗" : "PET 聽力測驗"; }
+  function testName(t){ return t === "vocab" ? "PET 單字測驗" : t === "reading" ? "PET Reading" : "PET Listening"; }
 
   function renderResult(){
     var app = $("#app"); app.innerHTML = "";
@@ -627,18 +674,18 @@
     }
 
     app.appendChild(el("h1", null, testName(S.test)));
-    app.appendChild(el("div","sub center","結果"));
+    app.appendChild(el("div","sub center",say("結果","Result")));
 
     var card = el("div","card center");
     card.appendChild(el("div","score")).innerHTML = right + "<small> / " + total + "</small>";
-    card.appendChild(el("div","verdict2", pct + " 分"));
+    card.appendChild(el("div","verdict2", pct + say(" 分","%")));
     var msg;
-    if (pct >= 85) msg = "這個分數在 PET 是安全區，正式考試可以放心。";
-    else if (pct >= 70) msg = "大約 B1 邊緣。把錯的題型再練一輪，穩定度會差很多。";
-    else if (pct >= 55) msg = "還在 A2 往 B1 的路上。先別衝速度，把每題錯的原因講一次給你聽。";
-    else msg = "這一份偏難。建議先降回 A2 題目建立信心，再回來。";
+    if (pct >= 85) msg = say("這個分數在 PET 是安全區，正式考試可以放心。","This is a safe score for PET — you can go into the exam calmly.");
+    else if (pct >= 70) msg = say("大約 B1 邊緣。把錯的題型再練一輪，穩定度會差很多。","Roughly borderline B1. One more round on the question types you missed will make you much steadier.");
+    else if (pct >= 55) msg = say("還在 A2 往 B1 的路上。先別衝速度，把每題錯的原因講一次給你聽。","Still on the way from A2 to B1. Forget speed for now — explain each mistake out loud once.");
+    else msg = say("這一份偏難。建議先降回 A2 題目建立信心，再回來。","This set is hard for now. Build confidence on easier material first, then come back.");
     card.appendChild(el("div","verdict2", msg));
-    if (!S.retry && st[S.test].best === right) card.appendChild(el("div","verdict2","🏆 目前最佳"));
+    if (!S.retry && st[S.test].best === right) card.appendChild(el("div","verdict2",say("🏆 目前最佳","🏆 Best so far")));
     app.appendChild(card);
 
     var wrongs = [], wrongSteps = [];
@@ -649,9 +696,9 @@
         g.people.forEach(function(p, i){
           if (S.match[stp.key + "_" + i] === g.answer[i]) { got++; return; }
           wrongs.push({
-            h: "配對題　" + p.name + "（" + p.desc + "）",
-            r: "正解 " + g.options[g.answer[i]].k + "　你選 " + (S.match[stp.key + "_" + i] >= 0 ? g.options[S.match[stp.key + "_" + i]].k : "沒選"),
-            t: MATCHWHY[i]
+            h: say("配對題　","Matching — ") + p.name + say("（"," (") + p.desc + say("）",")"),
+            r: say("正解 ","Answer: ") + g.options[g.answer[i]].k + say("　你選 ","  You chose: ") + (S.match[stp.key + "_" + i] >= 0 ? g.options[S.match[stp.key + "_" + i]].k : say("沒選","not answered")),
+            t: (S.test === "vocab" ? MATCHWHY[i] : MATCHWHY_EN[i])
           });
         });
         if (got < g.people.length) wrongSteps.push(stp);
@@ -659,16 +706,16 @@
       }
       if (stp.kind === "cloze") {
         var okC = stp.data.accept.map(normW).indexOf(normW(S.picks[stp.key]))>=0;
-        if (!okC) { wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.accept[0] + "　你的答案 " + S.picks[stp.key], t: EXPO[stp.key] || stp.data.t }); wrongSteps.push(stp); }
+        if (!okC) { wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.accept[0] + "　你的答案 " + S.picks[stp.key], t: exWhy(stp.key, stp.data.t) }); wrongSteps.push(stp); }
       } else if (S.picks[stp.key] !== stp.data.a) {
-        wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.o[stp.data.a] + "　你的答案 " + stp.data.o[S.picks[stp.key]], t: EXPO[stp.key] || stp.data.t });
+        wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.o[stp.data.a] + "　你的答案 " + stp.data.o[S.picks[stp.key]], t: exWhy(stp.key, stp.data.t) });
         wrongSteps.push(stp);
       }
     });
 
     if (wrongs.length) {
       var wc = el("div","card");
-      wc.appendChild(el("span","part","錯題 " + wrongs.length + " 項"));
+      wc.appendChild(el("span","part",say("錯題 ","Wrong answers: ") + wrongs.length + say(" 項","")));
       var ul = el("ul","wlist");
       wrongs.forEach(function(w){
         var li = el("li");
@@ -682,14 +729,14 @@
 
     if (wrongSteps.length) {
       var pt = wrongSteps.reduce(function(n, s){ return n + (s.kind === "match" ? s.group.people.length : 1); }, 0);
-      var br = el("button","btn","只練這 " + pt + " 題錯的");
+      var br = el("button","btn",say("只練這 " + pt + " 題錯的","Practise these " + pt + " only"));
       br.addEventListener("click", function(){ startSubset(wrongSteps); });
       app.appendChild(br);
     }
-    var b1 = el("button","btn","再測一次");
+    var b1 = el("button","btn",say("再測一次","Try the whole set again"));
     b1.addEventListener("click", function(){ startTest(S.test); });
     app.appendChild(b1);
-    var b2 = el("button","btn ghost","回主選單");
+    var b2 = el("button","btn ghost",say("回主選單","Main menu"));
     b2.addEventListener("click", function(){ renderHome(); });
     app.appendChild(b2);
   }
@@ -700,17 +747,17 @@
     var app = $("#app"); app.innerHTML = "";
     var st = load();
 
-    app.appendChild(el("h1",null,"PET 練習站"));
-    app.appendChild(el("div","sub","B1 程度　·　哥哥考試前練這個"));
+    app.appendChild(el("h1",null,"PET Practice"));
+    app.appendChild(el("div","sub","B1 level　·　practice written in the PET style"));
 
-    [["vocab","單字","26 題　·　高頻字 ＋ 易錯搭配"],
-     ["reading","閱讀","27 題　·　PET Part 1–5 題型"],
-     ["listening","聽力","9 題　·　Part 1–3，英式發音可重播"]].forEach(function(row){
+    [["vocab","Vocabulary","26 items　·　high-frequency words ＋ collocations"],
+     ["reading","Reading","27 questions　·　Parts 1–5"],
+     ["listening","Listening","9 questions　·　Parts 1–3, replayable"]].forEach(function(row){
       var b = el("button","menu");
       b.appendChild(el("div","t", row[1]));
       b.appendChild(el("div","d", row[2]));
       if (st[row[0]] && st[row[0]].best !== undefined) {
-        b.appendChild(el("div","best","最佳 " + st[row[0]].best + " 分" + (st[row[0]].when ? "（" + st[row[0]].when + "）" : "")));
+        b.appendChild(el("div","best","Best " + st[row[0]].best + (st[row[0]].when ? " (" + st[row[0]].when + ")" : "")));
       }
       b.addEventListener("click", function(){ startTest(row[0]); });
       app.appendChild(b);
@@ -720,10 +767,10 @@
     var cb = document.createElement("input");
     cb.type="checkbox"; cb.checked = S.shuffle;
     cb.addEventListener("change", function(){ S.shuffle = cb.checked; });
-    lab.appendChild(cb); lab.appendChild(el("span",null,"單字題打亂順序"));
+    lab.appendChild(cb); lab.appendChild(el("span",null,"Shuffle vocabulary questions"));
     app.appendChild(lab);
 
-    app.appendChild(el("div","hint","閱讀題目是照 PET 真實題型重寫的練習，不是真題。成績存在這台裝置。"));
+    app.appendChild(el("div","hint","Practice items written in the PET style — not real exam papers. Scores are saved on this device."));
   }
 
   window.__petquiz = { S:S, startTest:startTest, VOCAB:VOCAB, READING:READING, LISTENING:LISTENING, correctCount:correctCount, totalPoints:totalPoints };
