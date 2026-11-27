@@ -241,12 +241,55 @@
       ] }
   ];
 
+  /* ============ 檢討解釋（錯在哪、怎麼改） ============ */
+  var EXPO = {
+    r0_0:"題目問「公告要會員做什麼」。A 錯：公告寫 free of charge，不用付費。C 錯：週一到週三關閉是事實，但公告的重點不是叫人等到週四。B 對：Please show your card at reception。做法：先圈出題目問的動作，再回公告找對應的動詞。",
+    r0_1:"A 錯：地點沒改，screen 4 就是原本的戲院。C 錯：Jess 已經買好票。B 對：7.30, not 8.00 like we thought。看到 not … like we thought 就是「更正先前認知」，答案幾乎都在這種句子裡。",
+    r0_2:"A 錯：明文寫 You do not need to print。C 錯：8.00 是教室開門時間，不是規定大家要早到。B 對：a USB stick is fine＝交數位檔就可以。",
+    r0_3:"A 錯：只有第三件半價，不是全部。C 錯：ends Sunday 是結束日，不是開始日。B 對：the third one HALF PRICE。這類題只要盯住「誰、多少、什麼時候結束」。",
+    r0_4:"A 錯：pasta 已經在冰箱，是加熱不是從頭煮。C 錯：媽媽說自己會晚回家，不是叫 Tom 等門。B 對：heat it for five minutes ＋ don't forget the rubbish。",
+    r2_0:"seasick 是暈船＝身體不舒服，所以是 unwell。excited（興奮）和 bored（無聊）都跟暈船相反，是拿「出海應該很好玩」的常識去猜才會選錯。",
+    r2_1:"原文 It sounds boring, but it isn't＝「聽起來無聊，但其實不會」，所以是 never boring。A 錯：她沒說「比看起來簡單」。C 錯：掌舵白天也在做，不是只有晚上。",
+    r2_2:"原文 by the end I loved it＝最後很喜歡，這才是讓她自己意外的點。B 錯：文章沒提白天睡不著。C 錯：值夜班的是這些年輕人自己，不是大人代替。",
+    r2_3:"saving for a longer course＝正在存錢報下一梯，所以是工作賺錢。B 錯：她沒有教別人。C 錯：不是學校安排的旅行。",
+    r2_4:"not scared of trying new things、better at working in a team → 變得有自信。B 錯：沒說要在學校學航海。C 錯：沒提成績變差。做推論題要抓「情緒／態度」的字。",
+    r3_0:"前後是對比：知道睡眠重要，「但是」很少人睡夠 → but。and 是順接、so 是因果、because 是原因，放進去邏輯都不通。",
+    r3_1:"research shows that… 是固定搭配（研究顯示）。tell 要接人（tell sb sth）；speak 不接 that 子句；look 意思不對。",
+    r3_2:"keep sb + 形容詞：keep young people awake＝讓他們保持清醒。awake 在這裡是形容詞，waking 是動詞形式，不能放這個位置。",
+    r3_3:"suggest that + 子句。advise 要寫 advise sb to do sth；advise to 這種寫法本身就不對。這種題先看空格後面接的是子句還是 to V。",
+    r3_4:"at the same time＝同一個時間。similar / equal / alike 都不能放進 the ___ time 這個位置，這是搭配題不是同義字題。",
+    r3_5:"前面沒有 the，而且句意是「比以前好」，所以用比較級 better，不是最高級 best。good / well 是原級，表達不出比較。",
+    r4_0:"Thanks for + 某事。thanks to 是「幸好有…／歸功於…」，意思完全不同，看到 thanks 不要反射性填 to。",
+    r4_1:"busy with sth＝忙於某事（busy at 也可以）。這裡不能用 for 或 in。",
+    r4_2:"three times a week＝每週三次。頻率寫法的固定冠詞是 a，不是 the 或 one。",
+    r4_3:"better 是比較級，後面一定要接 than。這格只要看到 better 就要想到 than。",
+    r4_4:"時間點用 at（at seven、at noon）。in 用在月份年份、on 用在星期日期。",
+    r4_5:"get used to + N / V-ing，這裡的 to 是介系詞不是不定詞，所以後面接 that 這種代名詞。漏掉 to 是最常見的錯。",
+    l0_0:"關鍵句：Could we make it half past six? 最後又確認 Sure, half past six。6.00 是最前面提到的時間（陷阱），7.00 整段沒出現。聽力第一大陷阱就是「第一個聽到的數字」。",
+    l1_0:"關鍵句：if you buy a drink as well, it's five pounds together，她回 I'll have a coffee too。只買三明治是 4.50，那是選項一的內容，不是她最後的決定。",
+    l2_0:"關鍵句：It's pouring＝正在下大雨。sunny 是天氣預報原本的說法（陷阱），不是現在的天氣。windy 整段沒提。",
+    l3_0:"關鍵句：I'd like to book a tennis court。join a club、buy equipment 都是沒出現的干擾選項。",
+    l3_1:"陷阱題：他一開始說 around ten，但對方回 ten is taken（已被訂走），最後確定 half past nine。只聽第一句就作答一定錯，要聽到最後的確認。",
+    l3_2:"關鍵句：please arrive ten minutes early。pay at the desk 是他自己問的、對方說可以，不算「被要求」；member's card 沒提到。",
+    l4_0:"關鍵句：leave from platform six instead of platform two。2 號是原本的月台，是最大陷阱。",
+    l4_1:"關鍵句：will also stop at Bath, which is not shown on your tickets＝新增停靠站。發車時間沒變早，也沒有改成巴士。",
+    l4_2:"關鍵句：free for anyone whose journey is delayed by more than thirty minutes。行李多的人是被要求去搭電梯，不是拿免費飲料——把兩個資訊接錯就會選 B。"
+  };
+  var MATCHWHY = [
+    "關鍵字：cheap＋children aged 6 and 8＋weekend。C 是免費、5–10 歲、週六早上，三個條件全中。F 健身房雖然便宜，但沒有兒童活動；G 家庭園圃是種菜，不是給小孩玩的活動。",
+    "關鍵字：quiet＋study＋evenings。A 開到晚上 10 點，頂樓有 silent study room。H 語言咖啡廳晚上也開，但那是聊天練英文，不是安靜讀書——這是最常見的錯選。",
+    "關鍵字：learn to cook＋healthy meals。B 有夜間課程、健康素食、小班制。G 是「種菜」不是「煮菜」，一字之差。",
+    "關鍵字：safe＋bicycle＋while he is at work（白天寄放）。D 室內、有監視器、按月收費。F 是健身房，完全沒有停車服務。",
+    "關鍵字：meet other people＋photography。E 是攝影社，各程度都收。其他選項的興趣都不是攝影。"
+  ];
+
   /* ============ 引擎 ============ */
   var KEY = "petquiz_v2";
-  var S = { test:null, steps:[], pos:0, picks:{}, match:{}, done:false, shuffle:true };
+  var S = { test:null, steps:[], pos:0, picks:{}, match:{}, done:false, shuffle:true, total:null, retry:false };
 
   function $(s){ return document.querySelector(s); }
   function el(t, c, x){ var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e; }
+  function normW(x){ return String(x).toLowerCase().replace(/[^a-z\- ]/g,"").replace(/\s+/g," ").trim(); }
   function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
   function store(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
   function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ return {}; } }
@@ -283,11 +326,18 @@
   }
 
   function startTest(test){
-    S.test = test; S.pos = 0; S.picks = {}; S.match = {}; S.done = false;
+    S.test = test; S.pos = 0; S.picks = {}; S.match = {}; S.done = false; S.total = null; S.retry = false;
     S.steps = buildSteps(test);
     if (S.shuffle && test === "vocab") shuffleArr(S.steps);
     renderStep();
   }
+
+  function startSubset(steps){
+    S.steps = steps; S.pos = 0; S.picks = {}; S.match = {}; S.done = false; S.retry = true;
+    S.total = steps.reduce(function(n, st){ return n + (st.kind === "match" ? st.group.people.length : 1); }, 0);
+    renderStep();
+  }
+  function totalNow(){ return S.total || totalPoints(S.test); }
 
   function renderStep(){
     var app = $("#app"); app.innerHTML = "";
@@ -296,7 +346,8 @@
     var total = S.steps.length;
 
     app.appendChild(el("h1", null, testName(S.test)));
-    app.appendChild(el("div","sub", st.part + "　·　第 " + (pointsBefore(S.pos)+1) + " / " + totalPoints(S.test) + " 題"));
+    var head = S.retry ? "錯題重練　·　" : "";
+    app.appendChild(el("div","sub", head + st.part + "　·　第 " + (pointsBefore(S.pos)+1) + " / " + totalNow() + " 題"));
 
     var barWrap = el("div","bar"), fill = el("i");
     fill.style.width = (S.pos/total*100)+"%";
@@ -419,7 +470,7 @@
   function paint(st, val, optEls, fb, next, inp){
     var d = st.data, ok;
     if (st.kind === "cloze") {
-      ok = d.accept.map(function(x){ return x.toLowerCase(); }).indexOf(String(val).toLowerCase()) >= 0;
+      ok = d.accept.map(normW).indexOf(normW(val)) >= 0;
       if (inp) inp.disabled = true;
       var b = document.querySelector(".typed .btn"); if (b) b.disabled = true;
     } else {
@@ -436,7 +487,8 @@
     var v = el("div","verdict", ok ? "✅ 答對了" : (st.kind==="cloze" ? "❌ 答案是 " + d.accept[0] : "❌ 正確答案是 " + "ABCD".charAt(d.a) + "．" + d.o[d.a]));
     v.style.color = ok ? "#5ee08a" : "#e07186";
     fb.appendChild(v);
-    if (d.t) fb.appendChild(el("div","tip", d.t));
+    var ex = EXPO[st.key] || d.t;
+    if (ex) fb.appendChild(el("div","tip", "檢討：" + ex));
     if (st.kind === "listen" && st.group.script) {
       var tr = el("div","tr");
       tr.appendChild(el("b",null,"逐字稿："));
@@ -541,7 +593,7 @@
     S.steps.forEach(function(st){
       if (S.picks[st.key] === undefined) return;
       if (st.kind === "match") n += S.picks[st.key];
-      else if (st.kind === "cloze") { if (st.data.accept.map(function(x){return x.toLowerCase();}).indexOf(String(S.picks[st.key]).toLowerCase())>=0) n++; }
+      else if (st.kind === "cloze") { if (st.data.accept.map(normW).indexOf(normW(S.picks[st.key]))>=0) n++; }
       else if (S.picks[st.key] === st.data.a) n++;
     });
     return n;
@@ -557,16 +609,18 @@
   function renderResult(){
     var app = $("#app"); app.innerHTML = "";
     stopSpeak();
-    var total = totalPoints(S.test);
+    var total = totalNow();
     var right = correctCount();
     var pct = Math.round(right / total * 100);
 
     var st = load();
     st[S.test] = st[S.test] || {};
-    if (!st[S.test].best || right > st[S.test].best) st[S.test].best = right;
-    st[S.test].last = right;
-    st[S.test].when = new Date().toISOString().slice(0,10);
-    store(st);
+    if (!S.retry) {
+      if (!st[S.test].best || right > st[S.test].best) st[S.test].best = right;
+      st[S.test].last = right;
+      st[S.test].when = new Date().toISOString().slice(0,10);
+      store(st);
+    }
 
     app.appendChild(el("h1", null, testName(S.test)));
     app.appendChild(el("div","sub center","結果"));
@@ -580,21 +634,31 @@
     else if (pct >= 55) msg = "還在 A2 往 B1 的路上。先別衝速度，把每題錯的原因講一次給你聽。";
     else msg = "這一份偏難。建議先降回 A2 題目建立信心，再回來。";
     card.appendChild(el("div","verdict2", msg));
-    if (st[S.test].best === right) card.appendChild(el("div","verdict2","🏆 目前最佳"));
+    if (!S.retry && st[S.test].best === right) card.appendChild(el("div","verdict2","🏆 目前最佳"));
     app.appendChild(card);
 
-    var wrongs = [];
+    var wrongs = [], wrongSteps = [];
     S.steps.forEach(function(stp){
       if (S.picks[stp.key] === undefined) return;
       if (stp.kind === "match") {
-        if (S.picks[stp.key] < stp.group.people.length) wrongs.push({ h: stp.part + "　配對題", r: "答對 " + S.picks[stp.key] + " / " + stp.group.people.length });
+        var g = stp.group, got = 0;
+        g.people.forEach(function(p, i){
+          if (S.match[stp.key + "_" + i] === g.answer[i]) { got++; return; }
+          wrongs.push({
+            h: "配對題　" + p.name + "（" + p.desc + "）",
+            r: "正解 " + g.options[g.answer[i]].k + "　你選 " + (S.match[stp.key + "_" + i] >= 0 ? g.options[S.match[stp.key + "_" + i]].k : "沒選"),
+            t: MATCHWHY[i]
+          });
+        });
+        if (got < g.people.length) wrongSteps.push(stp);
         return;
       }
       if (stp.kind === "cloze") {
-        var okC = stp.data.accept.map(function(x){return x.toLowerCase();}).indexOf(String(S.picks[stp.key]).toLowerCase())>=0;
-        if (!okC) wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.accept[0] + "　你的答案 " + S.picks[stp.key], t: stp.data.t });
+        var okC = stp.data.accept.map(normW).indexOf(normW(S.picks[stp.key]))>=0;
+        if (!okC) { wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.accept[0] + "　你的答案 " + S.picks[stp.key], t: EXPO[stp.key] || stp.data.t }); wrongSteps.push(stp); }
       } else if (S.picks[stp.key] !== stp.data.a) {
-        wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.o[stp.data.a] + "　你的答案 " + stp.data.o[S.picks[stp.key]], t: stp.data.t });
+        wrongs.push({ h: stp.part + "　" + stp.data.q, r: "正解 " + stp.data.o[stp.data.a] + "　你的答案 " + stp.data.o[S.picks[stp.key]], t: EXPO[stp.key] || stp.data.t });
+        wrongSteps.push(stp);
       }
     });
 
@@ -606,12 +670,18 @@
         var li = el("li");
         li.appendChild(el("div","h", w.h));
         li.appendChild(el("div","r", w.r));
-        if (w.t) li.appendChild(el("div","r", w.t));
+        if (w.t) li.appendChild(el("div","r", "▸ " + w.t));
         ul.appendChild(li);
       });
       wc.appendChild(ul); app.appendChild(wc);
     }
 
+    if (wrongSteps.length) {
+      var pt = wrongSteps.reduce(function(n, s){ return n + (s.kind === "match" ? s.group.people.length : 1); }, 0);
+      var br = el("button","btn","只練這 " + pt + " 題錯的");
+      br.addEventListener("click", function(){ startSubset(wrongSteps); });
+      app.appendChild(br);
+    }
     var b1 = el("button","btn","再測一次");
     b1.addEventListener("click", function(){ startTest(S.test); });
     app.appendChild(b1);
