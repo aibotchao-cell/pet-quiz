@@ -131,7 +131,30 @@
     {q:"He's very good ______ maths.", o:["in","at","on","for"], a:1, t:"be good at。"},
     {q:"She has lived here ______ 2019.", o:["for","since","from","in"], a:1, t:"since + 起點；for + 一段時間。"},
     {q:"Would you like ______ come with us?", o:["come","coming","to come","came"], a:2, t:"would like to + 原形。"},
-    {q:"My sister is afraid ______ dogs.", o:["of","from","with","about"], a:0, t:"be afraid of。"}
+    {q:"My sister is afraid ______ dogs.", o:["of","from","with","about"], a:0, t:"be afraid of。"},
+    {q:"afford", o:["付得起","借錢","省錢","花費"], a:0, t:"can't afford to do sth / afford sth。"},
+    {q:"instead", o:["代替、反而","此外","仍然","因此"], a:0, t:"instead 常放句尾；instead of + N/V-ing。"},
+    {q:"although", o:["雖然","因為","所以","除非"], a:0, t:"although 不能和 but 一起用。"},
+    {q:"own", o:["自己的","唯一的","別人的","舊的"], a:0, t:"my own room = 我自己的房間。"},
+    {q:"repair", o:["修理","丟掉","購買","清洗"], a:0, t:"repair = fix，名詞也是 repair。"},
+    {q:"competition", o:["比賽","慶典","會議","練習"], a:0, t:"competition 比賽；competitor 參賽者。"},
+    {q:"advice", o:["建議（不可數）","建議（可數）","廣告","通知"], a:0, t:"advice 不可數：a piece of advice。"},
+    {q:"nervous", o:["緊張的","不耐煩的","驕傲的","孤單的"], a:0, t:"be nervous about sth。"},
+    {q:"increase", o:["增加","減少","保持","計算"], a:0, t:"increase 反義 decrease。"},
+    {q:"share", o:["分享","保存","比較","借出"], a:0, t:"share sth with sb。"},
+    {q:"notice", o:["注意到","忽視","記得","宣布"], a:0, t:"notice sb do / doing sth。"},
+    {q:"prepare", o:["準備","假裝","預約","提出"], a:0, t:"prepare for + N。"},
+    {q:"return", o:["歸還、返回","租借","購買","收到"], a:0, t:"return = give back。"},
+    {q:"comfortable", o:["舒服的","擁擠的","乾淨的","吵鬧的"], a:0, t:"comfortable；反義 uncomfortable。"},
+    {q:"I'm looking forward ______ hearing from you.", o:["for","to","at","in"], a:1, t:"look forward to + V-ing。"},
+    {q:"It's the best film I've ______ seen.", o:["ever","never","yet","already"], a:0, t:"最高級 ＋ ever ＋ 現在完成式。"},
+    {q:"She suggested ______ a taxi.", o:["take","to take","taking","took"], a:2, t:"suggest + V-ing。"},
+    {q:"I've been learning English ______ three years.", o:["since","for","from","during"], a:1, t:"for ＋ 一段時間；since ＋ 起點。"},
+    {q:"If it ______ tomorrow, we'll stay at home.", o:["will rain","rains","rained","is raining"], a:1, t:"if 子句用現在式代替未來。"},
+    {q:"He asked me where I ______ from.", o:["come","came","am coming","will come"], a:1, t:"間接問句時態往回推一層。"},
+    {q:"There aren't ______ chairs for everyone.", o:["enough","too","much","plenty"], a:0, t:"enough ＋ 名詞。"},
+    {q:"Would you mind ______ the window?", o:["open","to open","opening","opened"], a:2, t:"Would you mind + V-ing?"},
+    {q:"This is the boy ______ won the race.", o:["which","who","whose","where"], a:1, t:"先行詞是人 → who。"}
   ];
 
   /* ============ 閱讀 ============ */
@@ -151,7 +174,19 @@
         t:"第三件半價，不是全部半價。" },
       { passage:"Tom — I'll be home late tonight. There's pasta in the fridge, heat it for five minutes. And don't forget the rubbish before 9. Mum",
         q:"What should Tom do?", o:["Cook some pasta","Heat up food and take out the rubbish","Wait for his mum to come home"], a:1,
-        t:"加熱＋倒垃圾；pasta 已經煮好放在冰箱。" }
+        t:"加熱＋倒垃圾；pasta 已經煮好放在冰箱。" },
+      { passage:"LOCKERS\nPlease do not leave bags in the changing rooms. Lockers are free — ask at the desk for a key. Bags left overnight will be removed.", notice:true,
+        q:"What should visitors do with their bags?", o:["Leave them in the changing room","Collect a free locker key from the desk","Pay at the desk for a locker"], a:1,
+        t:"lockers are free → 到櫃台拿鑰匙，不用付錢。" },
+      { passage:"Dear parents,\nThe Year 9 museum trip on Thursday leaves at 8.45. Students should bring a packed lunch and wear comfortable shoes. We will be back at school by 4.00.", notice:true,
+        q:"What do students need to bring?", o:["Money to buy lunch","A packed lunch","A raincoat"], a:1,
+        t:"bring a packed lunch = 自己帶午餐。" },
+      { passage:"Alex — I can't meet at the cafe at 4. It's closed for painting. Let's go to the one by the park instead, same time. I've told Mia. Ben", 
+        q:"Why is Ben writing to Alex?", o:["To change where they will meet","To change the time they will meet","To cancel the meeting"], a:0,
+        t:"closed for painting → 換地點；same time 表示時間不變。" },
+      { passage:"BIKE SALE\nSaturday 10–2, school car park. Bring your own lock. All money goes to the animal shelter.", notice:true,
+        q:"What does the notice say about the bike sale?", o:["It takes place in the school hall","Buyers should bring a lock","It lasts all week"], a:1,
+        t:"Bring your own lock；地點是 car park、只有一天。" }
     ]},
 
     { part:"Part 2", kind:"match",
@@ -310,6 +345,10 @@
     r4_3:"'Better' is a comparative, so it must be followed by 'than'. See 'better' — think 'than'.",
     r4_4:"Use 'at' for clock times (at seven, at noon). 'In' is for months and years, 'on' for days and dates.",
     r4_5:"'Get used to + noun / -ing'. Here 'to' is a preposition, not an infinitive, which is why a pronoun like 'that' can follow it. Dropping 'to' is the most common mistake.",
+    r0_5:"A is wrong — the notice tells you NOT to leave bags in the changing rooms. C is wrong — 'Lockers are free'. B is right: 'ask at the desk for a key'. Signs like this usually state a prohibition first, then the instruction.",
+    r0_6:"A is wrong — money is never mentioned. C is wrong — 'comfortable shoes', not a raincoat. B is right: 'bring a packed lunch'. Check each option against an exact word in the notice.",
+    r0_7:"B is wrong — 'same time' means the time does not change. C is wrong — not cancelled, just moved. A is right: 'It's closed… let's go to the one by the park instead'. Watch 'instead' and 'same': one changes, one does not.",
+    r0_8:"A is wrong — 'school car park', not the hall. C is wrong — one day only ('Saturday 10–2'). B is right: 'Bring your own lock'. In notices, the place and the date are the easiest details to confuse.",
     l0_0:"Key line: 'Could we make it half past six?' and then the confirmation 'Sure, half past six'. 6.00 is the time mentioned first (the trap) and 7.00 never appears. In Part 1 the first number you hear is often the wrong one.",
     l1_0:"Key line: 'if you buy a drink as well, it's five pounds together', and she answers 'I'll have a coffee too'. The sandwich alone is 4.50 — that is option A, not her final decision.",
     l2_0:"Key line: 'It's pouring' — it is raining hard now. 'Sunny' was the forecast earlier in the conversation (the trap), not the weather now. 'Windy' is never mentioned.",
@@ -342,14 +381,44 @@
   function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ return {}; } }
   function shuffleArr(a){ for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;} return a; }
 
+  /* 每題戰績：答錯的、沒看過的優先出題 */
+  var SK = "petquiz_stats_v1";
+  function loadStats(){ try{ return JSON.parse(localStorage.getItem(SK)||"{}")||{}; }catch(e){ return {}; } }
+  function saveStats(o){ try{ localStorage.setItem(SK, JSON.stringify(o)); }catch(e){} }
+  function bumpStat(key, ok){
+    var s = loadStats(), r = s[key] || {s:0,w:0};
+    r.s++; if(!ok) r.w++;
+    s[key] = r; saveStats(s);
+  }
+  function take(list, n, keyFn){
+    var st = loadStats();
+    var scored = list.map(function(x){
+      var r = st[keyFn(x)] || {s:0,w:0};
+      return { x:x, sc: (r.w > 0 ? 5 + r.w : 0) + (r.s === 0 ? 2 : 0) + Math.random() };
+    }).sort(function(a,b){ return b.sc - a.sc; });
+    return scored.slice(0, Math.min(n, scored.length)).map(function(o){ return o.x; });
+  }
+  function shuffleOpt(it){
+    if (!it.o) return it;
+    var idx = it.o.map(function(_,i){ return i; });
+    shuffleArr(idx);
+    return { q:it.q, o:idx.map(function(i){ return it.o[i]; }), a:idx.indexOf(it.a), t:it.t, accept:it.accept };
+  }
+
   function buildSteps(test){
     var steps = [];
     if (test === "vocab") {
-      VOCAB.forEach(function(it, i){ steps.push({ kind:"mc", part:"單字", data:it, key:"v"+i }); });
+      var vlist = VOCAB.map(function(it, i){ return {it:it, i:i}; });
+      if (S.shuffle) shuffleArr(vlist);
+      var pool = take(vlist, 20, function(x){ return "v"+x.i; });
+      pool.forEach(function(x){ steps.push({ kind:"mc", part:"單字", data:shuffleOpt(x.it), key:"v"+x.i }); });
     } else if (test === "reading") {
       READING.forEach(function(g, gi){
         if (g.kind === "match") {
           steps.push({ kind:"match", part:g.part, group:g, key:"rg"+gi });
+        } else if (g.part === "Part 1" && g.items.length > 5) {
+          take(g.items.map(function(it, i){ return {it:it, i:i}; }), 5, function(x){ return "r"+gi+"_"+x.i; })
+            .forEach(function(x){ steps.push({ kind:"mc", part:g.part, group:g, data:x.it, key:"r"+gi+"_"+x.i }); });
         } else {
           g.items.forEach(function(it, i){
             steps.push({ kind: (g.kind === "cloze" ? "cloze" : "mc"), part:g.part, group:g, data:it, key:"r"+gi+"_"+i });
@@ -369,13 +438,13 @@
   function totalPoints(test){
     if (test === "reading") return 27;
     if (test === "listening") return 9;
-    return VOCAB.length;
+    return S.steps.length;
   }
 
   function startTest(test){
     S.test = test; S.pos = 0; S.picks = {}; S.match = {}; S.done = false; S.total = null; S.retry = false;
     S.steps = buildSteps(test);
-    if (S.shuffle && test === "vocab") shuffleArr(S.steps);
+
     renderStep();
   }
 
@@ -534,6 +603,7 @@
         else b.classList.add("dim");
       });
     }
+    if (!st.__counted) { st.__counted = true; bumpStat(st.key, ok); }
     fb.className = "fb show"; fb.innerHTML = "";
     var v = el("div","verdict", ok ? say("✅ 答對了","✅ Correct") : (st.kind==="cloze" ? say("❌ 答案是 ","❌ The answer is ") + d.accept[0] : say("❌ 正確答案是 ","❌ The answer is ") + "ABCD".charAt(d.a) + say("．"," — ") + d.o[d.a]));
     v.style.color = ok ? "#5ee08a" : "#e07186";
@@ -597,6 +667,7 @@
         else { r.row.classList.add("no"); }
       });
       S.picks[st.key] = right;
+      if (!st.__counted) { st.__counted = true; bumpStat(st.key, right === g.people.length); }
       fb.className = "fb show"; fb.innerHTML = "";
       var v = el("div","verdict",say("答對 ","Correct: ") + right + " / " + g.people.length);
       v.style.color = right === g.people.length ? "#5ee08a" : "#e8b34b";
@@ -750,8 +821,8 @@
     app.appendChild(el("h1",null,"PET Practice"));
     app.appendChild(el("div","sub","B1 level　·　practice written in the PET style"));
 
-    [["vocab","Vocabulary","26 items　·　high-frequency words ＋ collocations"],
-     ["reading","Reading","27 questions　·　Parts 1–5"],
+    [["vocab","Vocabulary","50-item pool　·　20 drawn each round"],
+     ["reading","Reading","27 questions　·　Part 1 drawn from 9 texts"],
      ["listening","Listening","9 questions　·　Parts 1–3, replayable"]].forEach(function(row){
       var b = el("button","menu");
       b.appendChild(el("div","t", row[1]));
@@ -770,7 +841,7 @@
     lab.appendChild(cb); lab.appendChild(el("span",null,"Shuffle vocabulary questions"));
     app.appendChild(lab);
 
-    app.appendChild(el("div","hint","Practice items written in the PET style — not real exam papers. Scores are saved on this device."));
+    app.appendChild(el("div","hint","Practice items written in the PET style — not real exam papers. Questions you get wrong, and ones you have not seen yet, come up first. Scores are saved on this device."));
   }
 
   window.__petquiz = { S:S, startTest:startTest, VOCAB:VOCAB, READING:READING, LISTENING:LISTENING, correctCount:correctCount, totalPoints:totalPoints };
